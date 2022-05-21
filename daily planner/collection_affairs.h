@@ -122,10 +122,51 @@ affairs* editing_affairs(affairs aff) {
 	return 0;
 }
 
+void find_name(affairs* aff, int count_aff, string temp) {
+
+	
+
+	for (int i = 0; i < count_aff; i++) {
+		if (aff[i].name == temp) {
+			cout << i << ')' << endl;
+			cout << aff[i].name << endl;
+			cout << endl;
+		}
+	}
+
+}
+
+void find_priority(affairs* aff, int count_aff, int priority) {
+
+	for (int i = 0; i < count_aff; i++) {
+		if (aff[i].priority == priority) {
+			cout << i << ')' << endl;
+			print_affairs(aff[i]);
+			cout << endl;
+		}
+	}
+}
+
+void find_description(affairs* aff, int count_aff, string temp) {
+
+	string buf;
+
+	for (int i = 0; i < count_aff; i++) {
+		buf = aff[i].description;
+		if (buf.find(temp)) {
+			cout << i << ')' << endl;
+			print_affairs(aff[i]);
+			cout << endl;
+		}
+	}
+
+}
+
 void find(affairs* aff, int count_aff) {
 
 	string res, temp;
 	bool flag = true;
+	int buf;
 
 	do {
 
@@ -135,25 +176,33 @@ void find(affairs* aff, int count_aff) {
 			cout << "find /priority - поиск по приоретету" << endl;
 			cout << "find /description - поиск по описанию" << endl;
 			cout << "find / time - поиск по времени и дате" << endl;
-			cout << "end" << endl;
+			cout << "print - вывод всех дел" << endl;
+			cout << "end - конец поиска" << endl;
 		}
 		else if (res == "find /name") {
 			cout << "¬ведите им€ дл€ поиска" << endl;
 			getline(cin, temp);
+			find_name(aff, count_aff, temp);
 		}
 		else if (res == "find /priority") {
 			cout << "¬ведите приоритет дл€ поиска" << endl;
-			getline(cin, temp);
+			cin >> buf;
+			find_priority(aff, count_aff, buf);
+
 		}
 		else if (res == "find /description") {
 			cout << "¬ведите описание дела дл€ поиска" << endl;
 			getline(cin, temp);
+			find_description(aff, count_aff, temp);
 		}
 		else if (res == "find /time") {
 
 		}
 		else if (res == "end") {
 			flag = false;
+		}
+		else if (res == "print") {
+			print_collection(aff, count_aff);
 		}
 		else {
 			cout << " оманда не найдена, help дл€ справки" << endl;
