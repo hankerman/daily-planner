@@ -168,7 +168,9 @@ void find(affairs* aff, int count_aff) {
 	bool flag = true;
 	int buf;
 
-	do {
+	while (flag); {
+
+		getline(cin, res);		
 
 		if (res == "help") {
 			cout << "help - список команд" << endl;
@@ -208,6 +210,6 @@ void find(affairs* aff, int count_aff) {
 			cout << " оманда не найдена, help дл€ справки" << endl;
 		}
 
-	} while (flag);
+	}
 
 }

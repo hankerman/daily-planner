@@ -13,11 +13,11 @@ int main()
     
     affairs* aff = nullptr;
     aff = read_affs();
-    int wh = 1;
+    bool flag = true;
     string actions;
     
 
-    while (wh != 0) {
+    while (flag) {
 
         getline(cin, actions);
 
@@ -28,9 +28,10 @@ int main()
             cout << "save - перезаписать дела;" << endl;
             cout << "print - вывести дела;" << endl;
             cout << "editaff - редактировать дело" << endl;
+            cout << "find - поиск по списку дел" << endl;
         }
         else if (actions == "exit") {
-            wh = 0;
+            flag = false;
         }
         else if (actions == "addaff") {
             add_affairs(aff, count_aff);
@@ -46,6 +47,9 @@ int main()
             cout << "Введите номер дела: ";
             cin >> n;
             editing_affairs(aff[n]);
+        }
+        else if (actions == "find") {
+            find(aff, count_aff);
         }
         else {
             cout << "Не верная команда, попробуйте еще раз или введите help." << endl;
