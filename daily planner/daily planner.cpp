@@ -19,6 +19,8 @@ int main()
 
     while (flag) {
 
+        cout << "<<main:" << endl << endl;
+
         getline(cin, actions);
 
         if (actions == "help") {
@@ -49,7 +51,7 @@ int main()
             editing_affairs(aff[n]);
         }
         else if (actions == "find") {
-            find(aff, count_aff);
+            find_aff(aff, count_aff);
         }
         else {
             cout << "Не верная команда, попробуйте еще раз или введите help." << endl;

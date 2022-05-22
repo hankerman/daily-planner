@@ -36,9 +36,9 @@ affairs* read_affs() {
 
     affairs bufer;
 
-    if (fin.is_open()) {
+    /*if (fin.is_open()) {
         cout << "File Open" << endl << endl;
-    }
+    }*/
     fin >> ::count_aff;
     
 

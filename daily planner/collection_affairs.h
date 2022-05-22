@@ -54,6 +54,7 @@ affairs* editing_affairs(affairs aff) {
 	while (num != 0) {
 		
 		cout << "---------------------" << endl;
+		cout << "<<edit:" << endl << endl;
 		getline(cin, key);
 
 		if (key == "editName") {
@@ -124,12 +125,13 @@ affairs* editing_affairs(affairs aff) {
 
 void find_name(affairs* aff, int count_aff, string temp) {
 
-	
+	string buf;
 
 	for (int i = 0; i < count_aff; i++) {
-		if (aff[i].name == temp) {
+		buf = aff[i].name;
+		if (buf.find(temp, 0)) {
 			cout << i << ')' << endl;
-			cout << aff[i].name << endl;
+			print_affairs(aff[i]);
 			cout << endl;
 		}
 	}
@@ -162,15 +164,16 @@ void find_description(affairs* aff, int count_aff, string temp) {
 
 }
 
-void find(affairs* aff, int count_aff) {
+void find_aff(affairs* aff, int count_aff) {
 
 	string res, temp;
 	bool flag = true;
 	int buf;
 
-	while (flag); {
+	while (flag) {
 
-		getline(cin, res);		
+		cout << "<<find:" << endl << endl;
+		getline(cin, res);
 
 		if (res == "help") {
 			cout << "help - список команд" << endl;
